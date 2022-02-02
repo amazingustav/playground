@@ -28,7 +28,7 @@ object Ipv4Ipv6 {
         println(result.joinToString("\n"))
     }
 
-    fun validateAddresses(addresses: Array<String>): Array<String> {
+    private fun validateAddresses(addresses: Array<String>): Array<String> {
         val results = mutableListOf<String>()
 
         addresses.forEach {
