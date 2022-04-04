@@ -24,4 +24,13 @@ defmodule MyModule.Calendar do
             true -> "Invalid week day"
         end
     end
+
+    def week_day_abreviation3(:Monday), do: "Mon"
+    def week_day_abreviation3(:Tuesday), do: "Tue"
+    def week_day_abreviation3(:Wednesday), do: "Wed"
+    def week_day_abreviation3(:Thursday), do: "Thu"
+    def week_day_abreviation3(:Friday), do: "Fri"
+    def week_day_abreviation3(:Saturday), do: "Sat"
+    def week_day_abreviation3(:Sunday), do: "Sun"
+    def week_day_abreviation3(_), do: "Invalid week day"
 end
