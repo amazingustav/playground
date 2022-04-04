@@ -11,4 +11,17 @@ defmodule MyModule.Calendar do
             _ -> "Invalid week day"
         end
     end
+
+    def week_day_abreviation2(week_day) do
+        cond do
+            week_day == :Monday -> "Mon"
+            week_day == :Tuesday -> "Tue"
+            week_day == :Wednesday -> "Wed"
+            week_day == :Thursday -> "Thu"
+            week_day == :Friday -> "Fri"
+            week_day == :Saturday -> "Sat"
+            week_day == :Sunday -> "Sun"
+            true -> "Invalid week day"
+        end
+    end
 end
