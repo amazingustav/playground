@@ -4,8 +4,14 @@ defmodule MyModule do
 
     alias MyModule.Math, as: MyMath
 
+    require Integer
+
     def hello_world do
         inspect(MyMath.sum(2, 2))
+    end
+
+    def is_even(number) do
+        puts("Is the number #{number} even? #{Integer.is_even(number)}")
     end
 
     def inspect(param) do
