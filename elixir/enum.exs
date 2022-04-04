@@ -1,8 +1,6 @@
 defmodule MyModule.Enum do
     def first(list) do
-        if length(list) == 0 do
-            nil
-        else
+        unless length(list) == 0 do
             hd(list)
         end
     end
