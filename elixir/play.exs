@@ -10,10 +10,11 @@ defmodule MyModule do
 
     def is_even(number) do
         require Integer
+
         puts("Is the number #{number} even? #{Integer.is_even(number)}")
     end
 
-    def inspect(param) do
+    defp inspect(param) do
         puts("Starting inspection...")
         puts(param)
         puts("Finishing inspection...")
