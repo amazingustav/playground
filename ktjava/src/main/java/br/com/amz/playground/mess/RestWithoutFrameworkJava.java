@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -15,15 +14,14 @@ public class RestWithoutFrameworkJava {
 
     /**
      * This code should make a simple GET request, but using only Java native resources.
-     * No frameworks, no libraries.
+     * No frameworks, no external libraries.
      **/
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        final var bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        final var bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        final var threshold = Integer.parseInt(bufferedReader.readLine().trim());
 
-        int threshold = Integer.parseInt(bufferedReader.readLine().trim());
-
-        List<String> result = getUsernames(threshold);
+        final List<String> result = getUsernames(threshold);
 
         bufferedWriter.write(String.join("\n", result) + "\n");
 
@@ -32,8 +30,8 @@ public class RestWithoutFrameworkJava {
     }
 
     public static List<String> getUsernames(int threshold) throws IOException {
-        String apiResponse = makeRequest(1);
-        List<String> list = new ArrayList<>();
+        final var apiResponse = makeRequest(threshold);
+        final List<String> list = new ArrayList<>();
 
         list.add(apiResponse);
 
@@ -41,17 +39,14 @@ public class RestWithoutFrameworkJava {
     }
 
     private static String makeRequest(int page) throws IOException {
-        String host = "https://jsonmock.hackerrank.com/api/article_users?page=";
-        String api = host.concat(String.valueOf(page));
+        final var host = "https://jsonmock.hackerrank.com/api/article_users?page=";
+        final var api = host.concat(String.valueOf(page));
+        final var connection = (HttpURLConnection) new URL(api).openConnection();
 
-        URL url = new URL(api);
-
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestProperty("accept", "application/json");
 
-        InputStream responseStream = connection.getInputStream();
-
-        String response = new String(responseStream.readAllBytes());
+        final var responseStream = connection.getInputStream();
+        final var response = String.valueOf(responseStream.read());
 
         responseStream.close();
 
