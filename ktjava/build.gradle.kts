@@ -19,8 +19,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.2")
     implementation("io.ktor:ktor-server-netty:2.0.1")
-    implementation("io.ktor:ktor-html-builder:1.6.7")
-    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
+    implementation("io.ktor:ktor-html-builder:1.6.8")
+    implementation("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.5")
 }
 
 tasks.test {
