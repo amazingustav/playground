@@ -2,6 +2,12 @@ package br.com.amz.playground.mess
 
 object BalanceBrackets {
 
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val s = "f(e(d))"
+        println(isBalanced(s))
+    }
+
     /**
      * Given a string with brackets -> (, ), [, ], { and } you must return "YES" if it is a valid string or "NO" if it isn't.
      * A valid String in that structure means that ALL BRACKETS can be closed correctly.
@@ -10,16 +16,19 @@ object BalanceBrackets {
      * ((][)) -> invalid
      * ({[]}) -> valid
      * {{{[[]](()[]}}} -> invalid
+     * f(e(0)) -> valid
      * */
-    fun isBalanced(s: String): String {
-        var loop = 0
+    fun isBalanced(brackets: String): String {
+        var s = brackets
 
-        while (s.length != loop) {
-            loop = s.length
+        while (s.isNotEmpty()) {
+            val temp = s
+            s = s.replace(Regex("[^()\\[\\]{}]"), "")
+                .replace("()", "")
+                .replace("[]", "")
+                .replace("{}", "");
 
-            s.replace("()", "")
-            s.replace("[]", "")
-            s.replace("{}", "")
+            if (s == temp) break
         }
 
         return if (s.isEmpty()) "YES" else "NO"
