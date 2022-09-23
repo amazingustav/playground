@@ -40,7 +40,9 @@ object Minesweeper {
         print(result)
     }
 
-    fun discoveryMines(input: List<List<Int>>, coordX: Int, coordY: Int): Int {
+    while a user is downloading a file which is X bytes in size
+
+    private fun discoveryMines(input: List<List<Int>>, coordX: Int, coordY: Int): Int {
         var adjacents = 0
 
         val line = input[coordX]
