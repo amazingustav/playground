@@ -1,8 +1,0 @@
-package br.com.amz.playground.mess;
-
-public class Play {
-    public static void main(String[] args) {
-        System.out.println("sup");
-    }
-
-}
